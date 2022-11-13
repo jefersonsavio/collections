@@ -1,7 +1,6 @@
 package list;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,13 +19,17 @@ public class exemploOrdenacao {
 
         System.out.println("--\tOrdem de aleatoria\t--");
         Collections.shuffle(gatos);
+        System.out.println(gatos);
 
-        
+        System.out.println("--\tOrdem de aleatoria\t--");
+        Collections.sort(gatos);
+        System.out.println(gatos);
+
     }
 
 }
 
-class Gato {
+class Gato implements Comparable {
     private String nome;
     private Integer idade;
     private String cor;
@@ -64,6 +67,11 @@ class Gato {
     @Override
     public String toString() {
         return "Gato [nome=" + nome + ", idade=" + idade + ", cor=" + cor + "]";
+    }
+
+    @Override
+    public int compareTo(Object gato) {
+        return this.getNome().compareTo(nome);
     }
 
 }
