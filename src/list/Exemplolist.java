@@ -74,9 +74,9 @@ public class Exemplolist {
 		}
 
 		notas.clear();
-		System.out.println("apagando toda a lista: " + notas);
+		System.out.println("apagando toda a lista: " + notas + "/n");
 		System.out.println("conferindo se a lista esta vazia: " + notas.isEmpty());
 
 	}
-
+	
 }
