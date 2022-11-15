@@ -100,8 +100,7 @@ public class ExemploMap {
         System.out.println(carroPopular3);
 
         System.out.println("apagando todo do dicionario: ");
-        carroPopular.clear();
-        carroPopular2.clear();
+       
         carroPopular3.clear();
         System.out.println("verificando se foi tudo apagado: " + carroPopular.isEmpty());
 
