@@ -1,15 +1,16 @@
 package com.digitalinnovation.set;
 
-public class Serie {
+public class Serie implements Comparable {
 
     private String nome;
     private String genero;
-    private Integer tempoepisodio;
+    private Integer tempoEpisodio;
+    private Serie serie;
 
-    public Serie(String nome, String genero, Integer tempoepisodio) {
+    public Serie(String nome, String genero, Integer tempoEpisodio) {
         this.nome = nome;
         this.genero = genero;
-        this.tempoepisodio = tempoepisodio;
+        this.tempoEpisodio = tempoEpisodio;
 
     }
 
@@ -29,19 +30,19 @@ public class Serie {
         this.genero = genero;
     }
 
-    public Integer getTempoepisodio() {
-        return tempoepisodio;
+    public Integer getTempoEpisodio() {
+        return tempoEpisodio;
     }
 
-    public void setTempoepisodio(Integer tempoepisodio) {
-        this.tempoepisodio = tempoepisodio;
+    public void setTempoEpisodio(Integer tempoEpisodio) {
+        this.tempoEpisodio = tempoEpisodio;
     }
 
     @Override
     public String toString() {
         return "Serie [nome=" + nome +
                 ", genero=" + genero +
-                ", tempoepisodio=" + tempoepisodio + "]";
+                ", tempo episodio=" + tempoEpisodio + "]";
 
     }
 
@@ -51,7 +52,7 @@ public class Serie {
         int result = 1;
         result = prime * result + ((nome == null) ? 0 : nome.hashCode());
         result = prime * result + ((genero == null) ? 0 : genero.hashCode());
-        result = prime * result + ((tempoepisodio == null) ? 0 : tempoepisodio.hashCode());
+        result = prime * result + ((tempoEpisodio == null) ? 0 : tempoEpisodio.hashCode());
         return result;
     }
 
@@ -74,12 +75,24 @@ public class Serie {
                 return false;
         } else if (!genero.equals(other.genero))
             return false;
-        if (tempoepisodio == null) {
-            if (other.tempoepisodio != null)
+        if (tempoEpisodio == null) {
+            if (other.tempoEpisodio != null)
                 return false;
-        } else if (!tempoepisodio.equals(other.tempoepisodio))
+        } else if (!tempoEpisodio.equals(other.tempoEpisodio))
             return false;
         return true;
+    }
+
+    @Override
+    public int compareTo(Object serie) {
+
+        
+        int tempoEpisodio = Integer.compare(((Serie) serie).getTempoEpisodio(), getTempoEpisodio());
+        if (tempoEpisodio != 0) {
+            return tempoEpisodio;
+        }
+        return this.getGenero().compareTo(getGenero());
+
     }
 
 }
