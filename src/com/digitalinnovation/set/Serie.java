@@ -5,7 +5,6 @@ public class Serie implements Comparable {
     private String nome;
     private String genero;
     private Integer tempoEpisodio;
-    private Serie serie;
 
     public Serie(String nome, String genero, Integer tempoEpisodio) {
         this.nome = nome;
